@@ -6,8 +6,8 @@ const Dashboard: React.FC = () => {
     return (
         <Card style={{ marginTop: '20px' }}>
             <CardContent>
-                <h1>Welcome to the administration</h1>
-                <p>Lorem ipsum sic dolor amet...</p>
+                <h1>Dashboard</h1>
+                <p>Employee and Project Management UI</p>
             </CardContent>
         </Card>
     );
