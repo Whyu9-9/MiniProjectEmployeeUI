@@ -8,24 +8,25 @@ import {
     ArrayField,
     Datagrid,
     Button,
-    useNotify,
-    useRedirect,
+    useShowController
 } from 'react-admin';
+import EmployeeSelectionModal from '../misc/EmployeeSelectionModal';
 
 const ProjectShow: React.FC = (props) => {
-    const notify = useNotify();
-    const redirect = useRedirect();
+    const { record } = useShowController(props);
+    const projectId = record?.id;
 
-    const handleAddEmployeeClick = () => {
-        // Implement your logic to open a modal or form to add employees
-        // This is just a placeholder
-        notify('Add Employee clicked');
-        // You can use redirect to navigate to a specific page after adding employee
-        redirect('/custom-path');
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpenModal = () => {
+        setOpen(true);
     };
 
+    const handleCloseModal = () => {
+        setOpen(false);
+    };
     return (
-        <Show {...props}>
+        <Show>
             <TabbedShowLayout>
                 <Tab label="Project Details">
                     <SimpleShowLayout>
@@ -44,9 +45,10 @@ const ProjectShow: React.FC = (props) => {
                             <TextField source="address" label="Address" />
                         </Datagrid>
                     </ArrayField>
-                    <Button label="Add Employee" onClick={handleAddEmployeeClick} />
+                    <Button onClick={handleOpenModal} label='Add Employee to Project'></Button>
                 </Tab>
             </TabbedShowLayout>
+            <EmployeeSelectionModal open={open} onClose={handleCloseModal} projectId={projectId} />
         </Show>
     );
 };

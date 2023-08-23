@@ -1,7 +1,13 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ShowButton } from "react-admin";
+import {
+    List,
+    Datagrid,
+    TextField,
+    ShowButton
+} from "react-admin";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import Action from '../misc/Action';
 
 export const ProjectList = () => (
     <List >
@@ -12,11 +18,8 @@ export const ProjectList = () => (
                     <TextField label="ID" source="id" />
                     <TextField source="name" />
                     <TextField source="description" />
-                    <span label="Action">
-                        <EditButton onClick="edit" />
-                        <DeleteButton onClick="delete" />
-                        <ShowButton onClick="show" />
-                    </span>
+                    <ShowButton label="Detail" />
+                    <Action label="Action" />
                 </Datagrid>
             </CardContent>
         </Card>

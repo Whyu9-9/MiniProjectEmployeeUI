@@ -27,9 +27,22 @@ const App = () => {
       dashboard={Dashboard}
       authProvider={authProvider}
       dataProvider={dataProvider}>
-      <Resource name="Admin" icon={AdminPanelSettingsIcon} list={AdminList} create={AdminCreate} edit={AdminEdit} />
-      <Resource name="Employee" list={EmployeeList} icon={UserIcon} create={EmployeeCreate} edit={EmployeeEdit} />
-      <Resource name="Project" list={ProjectList} icon={PostIcon} create={ProjectCreate} edit={ProjectEdit} show={ProjectShow} />
+      <Resource name="Admin"
+        icon={AdminPanelSettingsIcon}
+        list={AdminList}
+        create={AdminCreate}
+        edit={AdminEdit} />
+      <Resource name="Employee"
+        list={EmployeeList}
+        icon={UserIcon}
+        create={EmployeeCreate}
+        edit={EmployeeEdit} />
+      <Resource name="Project"
+        list={ProjectList}
+        icon={PostIcon}
+        create={ProjectCreate}
+        edit={ProjectEdit}
+        show={ProjectShow} />
     </Admin>
   );
 };
